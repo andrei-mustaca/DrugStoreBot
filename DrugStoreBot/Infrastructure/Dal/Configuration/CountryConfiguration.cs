@@ -14,14 +14,14 @@ public class CountryConfiguration : IEntityTypeConfiguration<Country>
 
         builder.Property(c => c.Name)
             .IsRequired()
-            .HasMaxLength(100) // Длина от 2 до 100 символов
-            .HasColumnType("nvarchar"); // Используемый тип данных
+            .HasMaxLength(100) 
+            .HasColumnType("nvarchar"); 
 
         builder.Property(c => c.Code)
             .IsRequired()
-            .HasMaxLength(2) // Должен состоять из 2 символов
-            .IsFixedLength() // Фиксированная длина строки
-            .HasColumnType("char(2)"); // Двухсимвольный фиксированный тип
+            .HasMaxLength(2) 
+            .IsFixedLength() 
+            .HasColumnType("char(2)");
         
         builder.HasMany(x => x.Drugs)
             .WithOne(d => d.Country)
